@@ -1,0 +1,32 @@
+* DOOM (2016) was rescheduled to Tue Jan  7 03:23:00 2020
+* DOOM (2016) was rescheduled to Tue Jan  7 04:11:00 2020
+* Razor Freestyle Scooter was rescheduled to Mon Jan  6 18:55:00 2020
+* The Legend of the Mystical Ninja was rescheduled to Mon Jan  6 21:36:00 2020
+* Sonic 3 & Knuckles was removed
+* Hollow_Knight was added at Mon Jan  6 22:34:00 2020
+* Hotline Miami was rescheduled to Tue Jan  7 04:22:00 2020
+* Bayonetta 2 was rescheduled to Tue Jan  7 16:11:00 2020
+* Tron: Evolution was removed
+* Catherine was added at Tue Jan  7 04:22:00 2020
+* Super Castlevania IV was rescheduled to Tue Jan  7 14:01:00 2020
+* Ninja Gaiden II: The Dark Sword of Chaos was rescheduled to Tue Jan  7 18:56:00 2020
+* UltraGiga_Setup_Block_1337 was added at Wed Jan  8 19:53:00 2020
+* Vectorman 2 was rescheduled to Wed Jan  8 03:50:00 2020
+* Final Fantasy VIII was removed
+* Contra: Hard Corps was changed to TasBot_plays_"Color_the_Dinosaur"
+* Razor Freestyle Scooter was rescheduled to Mon Jan  6 09:13:00 2020
+* The Legend of the Mystical Ninja was rescheduled to Mon Jan  6 14:02:00 2020
+* Sonic 3 & Knuckles was added at Mon Jan  6 21:20:00 2020
+* Hollow_Knight was removed
+* Catherine was removed
+* Hotline Miami was rescheduled to Tue Jan  7 17:34:00 2020
+* Bayonetta 2 was rescheduled to Tue Jan  7 07:28:00 2020
+* Tron: Evolution was added at Tue Jan  7 14:14:00 2020
+* Super Castlevania IV was rescheduled to Tue Jan  7 22:21:00 2020
+* Ninja Gaiden II: The Dark Sword of Chaos was rescheduled to Tue Jan  7 21:53:00 2020
+* Super Castlevania IV was added at Tue Jan  7 22:21:00 2020
+* Vectorman 2 was rescheduled to Wed Jan  8 17:06:00 2020
+* Final Fantasy VIII was added at Wed Jan  8 07:45:00 2020
+* Contra: Hard Corps was added at Wed Jan  8 19:59:00 2020
+* UltraGiga_Setup_Block_1337 was removed
+* TasBot_plays_"Color_the_Dinosaur" was removed

@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Games Done Quick</title>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="/static/res/css/main.css" />
+<script src="/static/res/js/main.min.js"></script>
+<link rel="shortcut icon" href="/static/res/img/favicon/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="/static/res/img/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/static/res/img/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/static/res/img/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/static/res/img/favicon/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/static/res/img/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/static/res/img/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/static/res/img/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/static/res/img/favicon/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/res/img/favicon/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/static/res/img/favicon/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/static/res/img/favicon/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="/static/res/img/favicon/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/static/res/img/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/static/res/img/favicon/favicon-32x32.png" sizes="32x32">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="/static/res/img/favicon/mstile-144x144.png">
+<meta name="msapplication-config" content="/static/res/img/favicon/browserconfig.xml">
+</head>
+<body>
+<div id="battlescene" style="display: none;">
+<p id="inputscene" style="color: #aaff33; font-family: Arial, sans-serif; font-weight: 500; font-size: 56px; position: absolute; top: 6%; right: 10%; text-shadow: 0 0 5px #22ff22;">
+Input 1 </p>
+<a href="#" title="Click to return whence you came, Harrier." onclick="location.reload();">
+<video id="battlevideo" preload="none" loop style="position: fixed; height: 100%; width: 100%; right: 0; left: 0; bottom: 0; margin-left: auto; margin-right: auto;">
+<source id="battlesource1" type="video/webm" src="/static/res/video/harrierverylow.webm">
+<source src="/static/res/video/harrierverylow.mp4" type="video/mp4">
+</video>
+</a>
+</div>
+<div id="scene">
+<div id="white-bg">
+<nav id="top" class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button> <a class="navbar-brand visible-xs-inline" href="#" onclick="window.history.go(-1); return false;"><i class="fa fa-chevron-left"></i></a> <a class="navbar-brand" href="/"><img src="/static/res/img/gdqlogo.png" style="height: 100%" alt="Games Done Quick" /></a>
+</div>
+<div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Event Info
+<span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="https://gamesdonequick.com/attend"><i class="fa fa-book fa-fw"></i> Attendance Guide + Hotel Booking</a></li>
+<li><a href="https://gamesdonequick.com/rules"><i class="fa fa-gavel fa-fw"></i> Event/Broadcast Rules</a></li>
+<li><a href="https://gamesdonequick.com/volunteer/faq"><i class="fa fa-question fa-fw"></i> Volunteering FAQ</a></li>
+<li><a href="https://gamesdonequick.com/submission-guide"><i class="fa fa-book fa-fw"></i> Game Submission Guide</a></li>
+<li><a href="https://gamesdonequick.com/schedule"><i class="fa fa-clock-o fa-fw"></i> AGDQ2020 Schedule</a></li>
+<li class="divider"></li>
+<li><a href="https://gamesdonequick.com/submission/all"><i class="fa fa-gamepad fa-fw"></i> All Game
+Submissions</a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">Community Info <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li role="presentation" class="dropdown-header">Games Done Quick</li>
+<li><a href="https://photos.gamesdonequick.com"><i class="fa fa-camera fa-fw"></i> Event Photos</a></li>
+<li><a href="https://twitch.tv/gamesdonequick"><i class="fa fa-twitch fa-fw"></i> Twitch Channel</a></li>
+<li><a href="https://twitter.com/GamesDoneQuick"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+<li role="presentation" class="dropdown-header">Speedrunning Guides</li>
+<li><a href="/mod-guide"><i class="fa fa-gavel fa-fw"></i> Guide to Automated Moderation</a></li>
+<li class="divider"></li>
+<li role="presentation" class="dropdown-header">Speedrunning Communities</li>
+<li><a href="http://speeddemosarchive.com"><i class="fa fa-archive fa-fw"></i> Speed Demos Archive</a></li>
+<li><a href="http://speedrunslive.com"><i class="fa fa-video-camera fa-fw"></i> Speed Runs Live</a></li>
+<li><a href="http://speedrun.com"><i class="fa fa-clock-o fa-fw"></i> Speedrun.com</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="https://gamesdonequick.com/privacy"><i class="fa fa-eye-slash fa-fw"></i> Privacy Policy</a></li>
+<li><a href="https://gamesdonequick.com/contact"><i class="fa fa-pencil fa-fw"></i> Contact Us</a></li>
+</ul>
+</li>
+<li>
+<a href="https://discord.gg/gamesdonequick"><i class="fa fa-fw fa-comments" aria-hidden="true"></i> Discord</a></a>
+</li>
+<li>
+<a href="https://www.youtube.com/user/gamesdonequick/playlists"><i class="fa fa-fw fa-youtube-play" aria-hidden="true"></i> VODS</a>
+</li>
+<li>
+<a href="/hotfix"><i class="fa fa-fw fa-bolt" aria-hidden="true"></i> HOTFIX</a>
+</li>
+</ul>
+<a href="https://gamesdonequick.com/auth/login" role="button" class="btn btn-primary btn-sm navbar-btn navbar-right extra-button-space">Login</a>
+<a href="https://gamesdonequick.com/auth/register" role="button" class="btn btn-danger btn-sm navbar-btn navbar-right extra-button-space">Register</a> </div>
+</div>
+</nav>
+<div class="container">
+</div>
+<div class="container text-center">
+<div class="fa-stack center-block medium-icon-red fa-5x">
+<i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-clock-o fa-stack-1x fa-inverse"></i>
+</div>
+<h1 class="text-gdq-red extra-spacing">AGDQ2020 Schedule</h1>
+<h4 class="text-gdq-black well ">All start and end times below are converted to your local time<span id="offset-detected"></span>.</h4>
+</div>
+<table id="runTable" class="table table-condensed">
+<thead>
+<tr class="day-split">
+<td>Time &amp; Length</td>
+<td>Run</td>
+<td>Runners &amp; <i class="fa fa-microphone"></i> Host</td>
+<td class="visible-lg">Setup&nbsp;Length</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="start-time text-right">2020-01-05T16:30:00Z</td>
+<td>Pre-Show</td>
+<td>Tech Crew</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:00 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:24:00 </td>
+<td>Fun and Games &mdash; </td>
+<td><i class="fa fa-microphone"></i> GhostBird</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-05T17:04:00Z</td>
+<td>A Hat in Time</td>
+<td>flarebear, Enhu</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:19:27 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:42:33 </td>
+<td>Any% Race &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> GhostBird</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-05T18:06:00Z</td>
+<td>Metroid: Zero Mission</td>
+<td>JRP2234</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:18:23 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:40:37 </td>
+<td>Any% &mdash; GBA</td>
+<td><i class="fa fa-microphone"></i> KrunchyLex</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-05T19:05:00Z</td>
+<td>Mega Man 7</td>
+<td>PJ</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:22:20 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:49:40 </td>
+<td>100% &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> KrunchyLex</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-05T20:17:00Z</td>
+<td>Ratchet &amp; Clank Future: Tools of Destruction</td>
+<td>KillaLombax</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:19:57 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:02:03 </td>
+<td>Any% &mdash; PS3</td>
+<td><i class="fa fa-microphone"></i> Geeketiquette</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-05T21:39:00Z</td>
+<td>Star Wars - Escape from Yavin 4: The Lost Maps</td>
+<td>CovertMuffin</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:20:12 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:50:48 </td>
+<td>Any% no VRGI &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Geeketiquette</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-05T22:50:00Z</td>
+<td>The Binding Of Isaac Afterbirth+</td>
+<td>StoneAgeMarcus</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:23:19 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:12:41 </td>
+<td>R+7 (S6) &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> cartridgeblowers</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T00:26:00Z</td>
+<td>Super Mario Bros. 3</td>
+<td>mitchflowerpower, TheHaxor, stewie_cartman</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:23:32 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:14:28 </td>
+<td>100% race &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> cartridgeblowers</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T02:04:00Z</td>
+<td>The Legend of Zelda: Skyward Sword</td>
+<td>gymnast86</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:27:24 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 2:25:36 </td>
+<td>Any% &mdash; Wii</td>
+<td><i class="fa fa-microphone"></i> Kungfufruitcup</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T04:57:00Z</td>
+<td>Dino Crisis 2</td>
+<td>WOLFDNC</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:14:52 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:20:08 </td>
+<td>Any% &mdash; PS3</td>
+<td><i class="fa fa-microphone"></i> CovertMuffin</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T06:32:00Z</td>
+<td>realMyst: Masterpiece Edition</td>
+<td>Gelly</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:16:47 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:16:13 </td>
+<td>All Pages &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Prolix</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T07:05:00Z</td>
+<td>Riven: The Sequel to Myst</td>
+<td>Zaustus</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:06:24 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:07:36 </td>
+<td>Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Prolix</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T07:19:00Z</td>
+<td>Myst III: Exile</td>
+<td>Admiral Flapjack</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:32 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:12:28 </td>
+<td>Best ending &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Prolix</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T07:42:00Z</td>
+<td>Bomberman Hero</td>
+<td>Liquid Squid</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:07:31 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:47:29 </td>
+<td>Any% &mdash; N64</td>
+<td><i class="fa fa-microphone"></i> Patty</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T08:37:00Z</td>
+<td>Chameleon Twist 2</td>
+<td>Necrocopter</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:08:06 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:27:54 </td>
+<td>any% &mdash; N64</td>
+<td><i class="fa fa-microphone"></i> Patty</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T09:13:00Z</td>
+<td>Razor Freestyle Scooter</td>
+<td>tapioca</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:07:08 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:10:52 </td>
+<td>Any% &mdash; N64</td>
+<td><i class="fa fa-microphone"></i> Patty</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T09:31:00Z</td>
+<td>Tetrisphere</td>
+<td>FFR Pro 21</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:17:43 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:33:17 </td>
+<td>Rescue 5-10 &mdash; N64</td>
+<td><i class="fa fa-microphone"></i> Patty</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T10:22:00Z</td>
+<td>Mario &amp; Luigi: Superstar Saga</td>
+<td>Sjorec, murmilio</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:19:28 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 2:38:32 </td>
+<td>All Bosses Co-op &mdash; GBA</td>
+<td><i class="fa fa-microphone"></i> LT_Humphrey</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T13:20:00Z</td>
+<td>Skyblazer</td>
+<td>Omnigamer</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:15:06 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:26:54 </td>
+<td>any% &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T14:02:00Z</td>
+<td>The Legend of the Mystical Ninja</td>
+<td>KLM1187, Teleo1</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:21:43 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:31:17 </td>
+<td>Low% Race &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T14:55:00Z</td>
+<td>ActRaiser</td>
+<td>metroidmcfly, sYn</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:15:11 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:24:49 </td>
+<td>Professional! Mode Race &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T15:35:00Z</td>
+<td>Battletoads &amp; Double Dragon</td>
+<td>colin</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:19:15 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:19:45 </td>
+<td>Any% &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T16:14:00Z</td>
+<td>The Great Circus Mystery Starring Mickey &amp; Minnie</td>
+<td>KingRhodesTn</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:20:40 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:23:20 </td>
+<td>Any% Normal &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T16:58:00Z</td>
+<td>Donkey Kong Country 3</td>
+<td>V0oid</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:19:34 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:55:26 </td>
+<td>103% &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> Skybilz</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T19:13:00Z</td>
+<td>Sonic Colours</td>
+<td>CriticalCyd</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:30:29 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:50:31 </td>
+<td>Egg Shuttle &mdash; Wii</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T20:34:00Z</td>
+<td>Sonic CD (2011)</td>
+<td>Sonikkustar, flying fox, Finalflame</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:25:42 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:20:18 </td>
+<td>Tails: Beat the Game &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T21:20:00Z</td>
+<td>Sonic 3 &amp; Knuckles</td>
+<td>Zaxon96, Joeybaby69</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:18:29 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:50:31 </td>
+<td>Sonic - Beat the game &mdash; Genesis</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T22:29:00Z</td>
+<td>Sonic the Hedgehog (2006)</td>
+<td>FocusSight</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:24:22 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:49:38 </td>
+<td>Silver&#039;s Story No MSG% &mdash; Xbox 360</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-06T23:43:00Z</td>
+<td>Fallout Anthology</td>
+<td>tomatoangus</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:16:39 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 2:16:21 </td>
+<td>Anthology (Main Series, Any%) &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Edobean</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T02:16:00Z</td>
+<td>The Outer Worlds</td>
+<td>Sharo</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:09:39 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:14:21 </td>
+<td>Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> YellowKillerBee</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T02:40:00Z</td>
+<td>Doom: SIGIL</td>
+<td>KingDime</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:28:48 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:14:12 </td>
+<td>UV-Speed &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> iggyzig</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T03:23:00Z</td>
+<td>AMID EVIL</td>
+<td>Psych0sis</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:21:23 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:26:37 </td>
+<td>any% Out of Bounds &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> iggyzig</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T04:11:00Z</td>
+<td>DOOM (2016)</td>
+<td>ByteMe</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:36:09 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 2:40:51 </td>
+<td>100% Nightmare &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> CovertMuffin</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T07:28:00Z</td>
+<td>Bayonetta 2</td>
+<td>Kap</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:27:12 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:43:48 </td>
+<td>Any% 2nd Climax &mdash; Switch</td>
+<td><i class="fa fa-microphone"></i> SmoothOperative</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T09:39:00Z</td>
+<td>Grand Theft Auto: San Andreas</td>
+<td>Reset</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:32:56 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 4:02:04 </td>
+ <td>Any% (No AJS) &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> AnEternalEnigma</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T14:14:00Z</td>
+<td>Tron: Evolution</td>
+<td>berlindude1</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:30 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:16:30 </td>
+<td>Any% New File &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Doctor No</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T15:41:00Z</td>
+<td>Eagle Island</td>
+<td>MrDino023</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:20:17 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:47:43 </td>
+<td>Official Seed Any% Core Rules &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> SakuraTsubasa</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T16:49:00Z</td>
+<td>The Mummy Demastered</td>
+<td>codepiece</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:12:52 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:32:08 </td>
+<td>any% oob &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> SakuraTsubasa</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T17:34:00Z</td>
+<td>Hotline Miami</td>
+<td>Snowfats</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:12:18 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:24:42 </td>
+<td>All Masks &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> YoBGS</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T18:11:00Z</td>
+<td>Chippy</td>
+<td>Scrublord</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:16:47 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:22:13 </td>
+<td>Crusade &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> YoBGS</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T18:50:00Z</td>
+<td>Crowtel Renovations</td>
+<td>theboyks</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:08:13 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:12:47 </td>
+<td>Croaktel Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> PurpleGhostKasper</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T19:11:00Z</td>
+<td>Manifold Garden</td>
+<td>Gelly</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:18 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:11:42 </td>
+<td>Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> PurpleGhostKasper</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T19:33:00Z</td>
+<td>Battletoads (Game Boy)</td>
+<td>WizWarioo</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:09:42 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:11:18 </td>
+<td>any% &mdash; Game Boy</td>
+<td><i class="fa fa-microphone"></i> PurpleGhostKasper</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T19:54:00Z</td>
+<td>Adventures of Lolo</td>
+<td>rayeo</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:41 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:25:19 </td>
+<td>Any% &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> cartridgeblowers</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T20:30:00Z</td>
+<td>Adventure Island II</td>
+<td>TheMexicanRunner</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:11:40 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:27:20 </td>
+<td>Any% &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> cartridgeblowers</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T21:09:00Z</td>
+<td>Hebereke</td>
+<td>adef</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:17:32 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:26:28 </td>
+<td>any% &mdash; Famicom</td>
+<td><i class="fa fa-microphone"></i> Sooraya</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T21:53:00Z</td>
+<td>Ninja Gaiden II: The Dark Sword of Chaos</td>
+<td>jimmypoopins, becored</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:17:14 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:10:46 </td>
+<td>Any% Race &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> Sooraya</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T22:21:00Z</td>
+<td>Super Castlevania IV</td>
+<td>JoeDamillio</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:11:17 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:39:43 </td>
+<td>Any% &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> Sooraya</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-07T23:12:00Z</td>
+<td>Pok&eacute;mon Sapphire</td>
+<td>Gunnermaniac</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:22:45 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 2:14:15 </td>
+<td>Any% Glitchless &mdash; GBA</td>
+<td><i class="fa fa-microphone"></i> SporadicErratic</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T01:49:00Z</td>
+<td>Mike Tyson&#039;s Punch-Out!!</td>
+<td>sinister1, zallard1</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:11:21 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:23:39 </td>
+<td>2 players 1 controller blindfolded &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> Mr. Game and Shout</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T02:24:00Z</td>
+<td>Terraria</td>
+<td>tvgBadger</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:23:45 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:08:15 </td>
+<td>Moonlord Normal Seeded &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Mr. Game and Shout</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T03:56:00Z</td>
+<td>The Legend of Zelda series</td>
+<td>Pro_JN, BluntBunny, Cantaloupeme, TGH, Rezovayix, rcdrone, JoshRTA, Greenmario, justinman114</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:27:48 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 3:21:12 </td>
+<td>Zelda Relay &mdash; NES/SNES</td>
+<td><i class="fa fa-microphone"></i> GhostBird</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T07:45:00Z</td>
+<td>Final Fantasy VIII</td>
+<td>Tojju, Muttski, Luzbelheim</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:42 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 9:10:18 </td>
+<td>any% Co-op Relay &mdash; PlayStation 2</td>
+<td><i class="fa fa-microphone"></i> Chris From Florida, YoBGS</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T17:06:00Z</td>
+<td>Vectorman 2</td>
+<td>Winslinator</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:08:19 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:12:41 </td>
+<td>Cool &mdash; Genesis</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T17:27:00Z</td>
+<td>Shadow Dancer</td>
+<td>Cypherin</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:08:10 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:13:50 </td>
+<td>Any% Shu - Level 1 (Easy) &mdash; Genesis</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T17:49:00Z</td>
+<td>Shinobi III: Return of the Ninja Master</td>
+<td>Faust4712</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:14:26 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:29:34 </td>
+<td>Kunailess Normal &mdash; Genesis</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T18:33:00Z</td>
+<td>Mystic Defender</td>
+<td>Zaxon96</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:18:49 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:10:11 </td>
+<td>Any% &mdash; Genesis</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T19:02:00Z</td>
+<td>Ghouls &#039;n Ghosts</td>
+<td>Aquas, dosboxfalco</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:08:31 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:19:29 </td>
+<td>Any% Race &mdash; MegaDrive</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T19:30:00Z</td>
+<td>Garfield: Caught in the Act</td>
+<td>janglestorm</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:08:58 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:20:02 </td>
+<td>Any% &mdash; Genesis</td>
+<td><i class="fa fa-microphone"></i> Lizstar</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T19:59:00Z</td>
+<td>Contra: Hard Corps</td>
+<td>NickBGoHard</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:22:56 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:18:04 </td>
+<td>Chase/Surrender - JP, Sheena &mdash; Genesis</td>
+<td><i class="fa fa-microphone"></i> fir_</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T20:40:00Z</td>
+<td>Blazing Chrome</td>
+<td>ThePoloKing</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:17:41 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:26:19 </td>
+<td>Arcade Mode (Normal) - Ninja &mdash; Xbox One</td>
+<td><i class="fa fa-microphone"></i> fir_</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T21:24:00Z</td>
+<td>Cybernator</td>
+<td>Elpis</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:16:46 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:08:14 </td>
+<td>No Napalm &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> fir_</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T21:49:00Z</td>
+<td>Super Monkey Ball</td>
+<td>Helix</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:27:19 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:23:41 </td>
+<td>All Difficulties No Extras Warpless &mdash; Gamecube</td>
+<td><i class="fa fa-microphone"></i> Prolix</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T22:40:00Z</td>
+<td>Teenage Mutant Ninja Turtles (arcade)</td>
+<td>LRock617</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:15:14 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:17:46 </td>
+<td>Any% 1CC &mdash; Xbox 360</td>
+<td><i class="fa fa-microphone"></i> Prolix</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-08T23:13:00Z</td>
+<td>Mushihime-sama Futari 1.01</td>
+<td>gusto</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:16:49 </td>
+ </tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:44:11 </td>
+<td>Ultra &mdash; Xbox 360</td>
+<td><i class="fa fa-microphone"></i> Prolix</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T00:14:00Z</td>
+<td>Metal Gear Solid 3: Snake Eater</td>
+<td>RaichuMGS</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:24:00 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:14:00 </td>
+<td>European Extreme Foxhound &mdash; PS3</td>
+<td><i class="fa fa-microphone"></i> Geeketiquette</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T01:52:00Z</td>
+<td>The Legend of Zelda: Ocarina of Time</td>
+<td>ZFG</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:42:48 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 2:50:12 </td>
+<td>100% No Source Requirement &mdash; Wii</td>
+<td><i class="fa fa-microphone"></i> Kungfufruitcup</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T05:25:00Z</td>
+<td>Cadence of Hyrule</td>
+<td>SpootyBiscuit, Goof</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:23:31 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:17:29 </td>
+<td>Story Mode &mdash; Switch</td>
+<td><i class="fa fa-microphone"></i> Edobean</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T06:06:00Z</td>
+<td>Mega Man 4-6</td>
+<td>ohon, becored, DarkTerrex, Ppotdot1, FeralPigMan, Resistingframe, Sagehero, lookintoad, Notriley4</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:17:29 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:51:31 </td>
+<td>Any% Relay &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> Edobean</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T08:15:00Z</td>
+<td>Animorphs (GBC)</td>
+<td>Keizaron</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:15:29 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:52:31 </td>
+<td>125% &mdash; GBC</td>
+<td><i class="fa fa-microphone"></i> Edobean</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T09:23:00Z</td>
+<td>Super Hydlide</td>
+<td>Mike Uyama</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:11:47 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:53:13 </td>
+<td>any% &mdash; Genesis</td>
+<td><i class="fa fa-microphone"></i> Patty</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T10:28:00Z</td>
+<td>Hoshi wo Miru Hito</td>
+<td>dowolf</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:52 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:47:08 </td>
+<td>any% 1 player 2 controllers &mdash; Famicom</td>
+<td><i class="fa fa-microphone"></i> Patty</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T11:26:00Z</td>
+<td>Sword of the Black Stone</td>
+<td>authorblues</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:06:54 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:13:06 </td>
+<td>All Bosses &amp; Companions &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Patty</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T11:46:00Z</td>
+<td>Castle of Dragon</td>
+<td>Apollo22237</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:07:44 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:11:16 </td>
+<td>Any% &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> Patty</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T12:05:00Z</td>
+<td>Wild Animal Sports Day</td>
+<td>Zic3, Bullets, SNeaky, Scrublord</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:06:18 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:07:42 </td>
+<td>600% Relay &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Patty</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T12:19:00Z</td>
+<td>The Adventures of Rocky and Bullwinkle and Friends</td>
+<td>coolkid</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:06:12 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:04:48 </td>
+<td>any% &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> YoBGS</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T12:30:00Z</td>
+<td>Jurassic Park III: Dino Defender</td>
+<td>Winslinator</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:07:54 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:16:06 </td>
+<td>Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> YoBGS</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T12:54:00Z</td>
+<td>Cybergenic Ranger: Secret of the Seventh Planet</td>
+<td>NPC</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:08:45 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:27:15 </td>
+<td>1 time% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> YoBGS</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T13:30:00Z</td>
+<td>Mega Man 3: The Robots are Revolting</td>
+<td>Lizstar</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:05:23 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:18:37 </td>
+<td>Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> YoBGS</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T13:54:00Z</td>
+<td>Miracle Ropit&#039;s Adventure in 2100</td>
+<td>Smartball</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:09:51 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:20:09 </td>
+<td>Warpless 1-Loop &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> YoBGS</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T14:24:00Z</td>
+<td>Barbie</td>
+<td>sharif, cajink87</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:08:14 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:13:46 </td>
+<td>Any% Race &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> YoBGS</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T14:46:00Z</td>
+<td>Normy&#039;s Beach Babe-O-Rama</td>
+<td>cook</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:09:42 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:16:18 </td>
+<td>beat the game &mdash; Genesis</td>
+<td><i class="fa fa-microphone"></i> YoBGS</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T15:12:00Z</td>
+<td>Doctor Hauzer</td>
+<td>PeteDorr</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:07:26 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:19:34 </td>
+<td>Any% &mdash; 3DO</td>
+<td><i class="fa fa-microphone"></i> Raelcun</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T15:39:00Z</td>
+<td>Nightcry</td>
+<td>Ecdycis</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:16:09 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:50:51 </td>
+<td>Two Survivors &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Raelcun</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T16:46:00Z</td>
+<td>Fatal Frame</td>
+<td>Maxylobes</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:13:11 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:16:49 </td>
+<td>Any% Normal &mdash; PS2</td>
+<td><i class="fa fa-microphone"></i> KrunchyLex</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T18:16:00Z</td>
+<td>Resident Evil 4</td>
+<td>MikeWave</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:13:20 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:33:40 </td>
+<td>New Game Pro &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> ZoeVermilion</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T20:03:00Z</td>
+<td>The Last of Us: Left Behind</td>
+<td>AnthonyCaliber</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:12:27 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:05:33 </td>
+<td>Any% PS4 &mdash; PS4</td>
+<td><i class="fa fa-microphone"></i> ZoeVermilion</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T20:21:00Z</td>
+<td>Jak 2</td>
+<td>headstrong1290, sickynar</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:16:26 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:06:34 </td>
+<td>Any% Race &mdash; Playstation 2</td>
+<td><i class="fa fa-microphone"></i> Sooraya</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T21:44:00Z</td>
+<td>Marvel&#039;s Spider-Man</td>
+<td>Pessilist</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:14:40 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:40:20 </td>
+<td>The Heist Any% &mdash; PS4</td>
+<td><i class="fa fa-microphone"></i> Sooraya</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T22:39:00Z</td>
+<td>Earth Defense Force 5</td>
+<td>halfcoordinated</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:15:12 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:48:48 </td>
+<td>DLC Mission Pack 1, Fencer Class, Hard Difficulty One-handed &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Mr. Game and Shout</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-09T23:43:00Z</td>
+<td>Devil May Cry 5</td>
+<td>DECosmic</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:23:26 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:34:34 </td>
+<td>New Game Human &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> AnEternalEnigma</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T01:41:00Z</td>
+<td>Final Fantasy VI</td>
+<td>Neerrm</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:34:53 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:23:07 </td>
+<td>Any% New Game + &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> YellowKillerBee</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T02:39:00Z</td>
+<td>Destiny 2</td>
+<td>Shockwve, ThePackle, Milkman, Tokeegee, Traderkirk, Alexy Sinclair</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:17:36 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:30:24 </td>
+<td>Last Wish - All Encounters &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Prolix</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T03:27:00Z</td>
+<td>Fire Emblem: Three Houses</td>
+<td>Claris</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:19:17 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:33:43 </td>
+<td>House Bid War &mdash; Switch</td>
+<td><i class="fa fa-microphone"></i> Chris From Florida</td>
+</tr>
+<tr>
+ <td class="start-time text-right">2020-01-10T05:20:00Z</td>
+<td>BioShock</td>
+<td>bloodthunder</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:16:01 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:49:59 </td>
+<td>Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> CovertMuffin</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T06:26:00Z</td>
+<td>Wolfenstein: Youngblood</td>
+<td>TheFuncannon, Bryonato</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:13:10 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:56:50 </td>
+<td>Any% Co-op &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Prolix</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T07:36:00Z</td>
+<td>Subnautica</td>
+<td>salvner</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:19 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:56:41 </td>
+<td>any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> SporadicErratic</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T08:43:00Z</td>
+<td>The Sun And Moon</td>
+<td>Gyoo</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:11:40 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:15:20 </td>
+<td>Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> SporadicErratic</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T09:10:00Z</td>
+<td>140</td>
+<td>v_input_output</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:11:05 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:17:55 </td>
+<td>Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> SporadicErratic</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T09:39:00Z</td>
+<td>Squidlit</td>
+<td>nucular</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:07:09 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:09:51 </td>
+<td>All Bosses &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> KrunchyLex</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T09:56:00Z</td>
+<td>Action Henk</td>
+<td>badBlackShark</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:06:54 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:29:06 </td>
+<td>All Levels &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> KrunchyLex</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T10:32:00Z</td>
+<td>Super Fancy Pants Adventure</td>
+<td>EyeOf_Newt</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:14:14 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:21:46 </td>
+<td>Any% NG+ &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> KrunchyLex</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T11:08:00Z</td>
+<td>Vampire: The Masquerade - Bloodlines</td>
+<td>Valvinraim</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:21:12 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:42:48 </td>
+<td>Any% Nosferatu &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> AnEternalEnigma</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T12:12:00Z</td>
+<td>Gato Roboto</td>
+<td>RiskyCB, SNeaky, shedd</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:13:44 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:23:16 </td>
+<td>Any% - Unrestricted &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> fir_</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T12:49:00Z</td>
+<td>Darkened Skye</td>
+<td>Lizstar</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:13:44 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:47:16 </td>
+<td>Taste the Rainbow &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> fir_</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T13:50:00Z</td>
+<td>Touhou Luna Nights</td>
+<td>Sean_A</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:08:32 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:34:28 </td>
+<td>Reverse Boss Order &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> fir_</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T14:33:00Z</td>
+<td>VVVVVV</td>
+<td>mohoc</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:19:57 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:21:03 </td>
+<td>Glitchless 100% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> fir_</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T15:14:00Z</td>
+<td>Celeste</td>
+<td>flarebear</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:11:25 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:20:35 </td>
+<td>Farewell &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> iggyzig</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T15:46:00Z</td>
+<td>PAC-MAN Championship Edition DX+</td>
+<td>teapartycthulu</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:14:42 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:37:18 </td>
+<td>All Time Trials (+DLC) &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> LT_Humphrey</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T16:38:00Z</td>
+<td>Pac-Man Arrangement</td>
+<td>Joester98</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:17:52 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:10:08 </td>
+<td>Any% &mdash; GBA</td>
+<td><i class="fa fa-microphone"></i> LT_Humphrey</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T17:06:00Z</td>
+<td>Pokemon X/Y</td>
+<td>wartab</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:19:59 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 4:04:01 </td>
+<td>Any% &mdash; 3DS</td>
+<td><i class="fa fa-microphone"></i> Geeketiquette</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T21:30:00Z</td>
+<td>Mega Man X4</td>
+<td>Qttsix</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:11:32 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:41:28 </td>
+<td>Zero 100% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Cutethulhoo</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T22:23:00Z</td>
+<td>Mega Man X3</td>
+<td>darrenville</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:14:55 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:46:05 </td>
+<td>100% &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> Cutethulhoo</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-10T23:24:00Z</td>
+<td>Mega Man X</td>
+<td>Tokyo90, darrenville, Clipper1, Soppanaama</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:22:55 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:37:05 </td>
+<td>100% Race &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> Cutethulhoo</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T00:24:00Z</td>
+<td>TASBot plays Super Mario Bros. 3</td>
+<td>dwangoAC, TASBot, TiKevin83</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:05:41 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:10:19 </td>
+<td>Warps by Lord Tom, Tompa &amp; Maru &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> Raelcun</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T00:40:00Z</td>
+<td>TASBot plays Super Mario Bros. 2</td>
+<td>dwangoAC, TASBot, TiKevin83</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:06:41 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:18:19 </td>
+<td>Warpless by Aglar and AndrewG &mdash; NES</td>
+<td><i class="fa fa-microphone"></i> Raelcun</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T01:05:00Z</td>
+<td>TASBot Plays Pok&eacute;mon Blue</td>
+<td>dwangoAC, TASBot, TiKevin83, Gifvex</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:15:53 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:10:07 </td>
+<td>No Save Corruption &mdash; Game Boy</td>
+<td><i class="fa fa-microphone"></i> Raelcun</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T01:31:00Z</td>
+<td>The Legend of Zelda: The Wind Waker</td>
+<td>CLG Linkus7</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:29:24 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:13:36 </td>
+<td>Any% &mdash; Wii</td>
+<td><i class="fa fa-microphone"></i> Mr. Game and Shout</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T03:14:00Z</td>
+<td>Super Mario 64 Randomizer</td>
+<td>Puncayshun, 360Chrism, Simply</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:20:24 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:04:36 </td>
+<td>70 Star &mdash; Wii VC</td>
+<td><i class="fa fa-microphone"></i> Raelcun</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T04:39:00Z</td>
+<td>Super Mario World</td>
+<td>authorblues, LackAttack24</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:23:12 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:14:48 </td>
+<td>One Mind 11 Exit Coop &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> CovertMuffin</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T05:17:00Z</td>
+<td>Dark Souls</td>
+<td>Regole</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:12:38 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:36:22 </td>
+<td>Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> CovertMuffin</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T06:06:00Z</td>
+<td>Control</td>
+<td>Bryonato</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:26:13 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:08:47 </td>
+<td>Any% &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> Prolix</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T07:41:00Z</td>
+<td>Trauma Center: New Blood</td>
+<td>Thurler</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:13:34 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 2:59:26 </td>
+<td>All Operations XS Rank &mdash; Wii</td>
+<td><i class="fa fa-microphone"></i> GhostBird</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T10:54:00Z</td>
+<td>Bonk&#039;s Adventure</td>
+<td>greatjhon</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:09:58 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:29:02 </td>
+<td>Any% &mdash; TG-16</td>
+<td><i class="fa fa-microphone"></i> Sooraya</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T11:33:00Z</td>
+<td>Tony Hawk&#039;s Project 8</td>
+<td>ThePackle</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:12:16 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:44:44 </td>
+<td>Any% (360/PS3) &mdash; Xbox 360</td>
+<td><i class="fa fa-microphone"></i> KrunchyLex</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T12:30:00Z</td>
+<td>Jumping Flash!</td>
+<td>Joester98</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:29:22 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:19:38 </td>
+<td>Any% &mdash; PSX</td>
+<td><i class="fa fa-microphone"></i> KrunchyLex</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T13:19:00Z</td>
+<td>Kuru Kuru Kururin</td>
+<td>mohoc</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:07:21 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:14:39 </td>
+<td>Any% (Normal) &mdash; GBA</td>
+<td><i class="fa fa-microphone"></i> Edobean</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T13:41:00Z</td>
+<td>Super Cat Bros</td>
+<td>MrUppercaseT</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:07:25 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:35:35 </td>
+<td>Any% &mdash; iPad</td>
+<td><i class="fa fa-microphone"></i> Edobean</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T14:24:00Z</td>
+<td>Castlevania: The Dracula X Chronicles</td>
+<td>Satoryu</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:14:38 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:23:22 </td>
+<td>Bad Ending &mdash; PSTV</td>
+<td><i class="fa fa-microphone"></i> Sooraya</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T15:02:00Z</td>
+<td>Kingdom Hearts: Birth by Sleep Final Mix HD</td>
+<td>Pessilist</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:45 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:54:15 </td>
+<td>Critical/Level 1 Any% Character Bid War &mdash; PS4</td>
+<td><i class="fa fa-microphone"></i> iggyzig</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T16:07:00Z</td>
+<td>Blasphemous</td>
+<td>teddyras</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:14:22 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:51:38 </td>
+<td>All Bosses - Glitched &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> cartridgeblowers</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T17:13:00Z</td>
+<td>Katana Zero</td>
+<td>yisk</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:23:05 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:21:55 </td>
+<td>All Stages &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> SakuraTsubasa</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T17:58:00Z</td>
+<td>Clone Hero (Guitar Hero)</td>
+<td>FrostedGH</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:21:28 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:51:32 </td>
+<td>Guitar Hero Showcase &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> LT_Humphrey</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T19:11:00Z</td>
+<td>The Legend of Zelda: A Link to the Past Randomizer</td>
+<td>Andy, Warp World</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:17:00 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 3:41:00 </td>
+<td>Open Mode, Crowd Control Difficulty &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> fir_</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-11T23:09:00Z</td>
+<td>Sekiro: Shadows Die Twice</td>
+<td>LilAggy</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:12:07 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:35:53 </td>
+<td>All Memories &amp; All Beads &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> iggyzig</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-12T00:57:00Z</td>
+<td>Untitled Goose Game</td>
+<td>Tasselfoot</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:29:17 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:15:43 </td>
+<td>All Main Tasks &mdash; PC</td>
+<td><i class="fa fa-microphone"></i> iggyzig</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-12T01:42:00Z</td>
+<td>Super Mario Maker 2</td>
+<td>Carl Sagan, grandpoobear, PangaeaPanga, Barbarian, juzcook, ryukahr, Aurateur, Thabeast721</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:03:00 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:15:00 </td>
+<td>4v4 Blind Relay Race &mdash; Switch</td>
+<td><i class="fa fa-microphone"></i> Skybilz</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-12T03:00:00Z</td>
+<td>Super Mario Maker 2 TAS</td>
+<td>TASBot</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:00 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:10:00 </td>
+<td>TAS &mdash; Switch</td>
+<td><i class="fa fa-microphone"></i> Skybilz</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-12T03:20:00Z</td>
+<td>The Legend of Zelda: Link&#039;s Awakening (2019)</td>
+<td>TGH</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:26:52 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 1:17:08 </td>
+<td>Any% &mdash; Switch</td>
+<td><i class="fa fa-microphone"></i> SporadicErratic</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-12T05:04:00Z</td>
+<td>Super Metroid Impossible</td>
+<td>Oatsngoats</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:03:18 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 2:23:42 </td>
+<td>Any% &mdash; SNES</td>
+<td><i class="fa fa-microphone"></i> AnEternalEnigma</td>
+</tr>
+<tr>
+<td class="start-time text-right">2020-01-12T07:31:00Z</td>
+<td>Finale</td>
+<td>Various</td>
+<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:10:00 </td>
+</tr>
+<tr class="second-row">
+<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:10:00 </td>
+<td>The End &mdash; </td>
+<td><i class="fa fa-microphone"></i> AnEternalEnigma</td>
+</tr>
+</tbody>
+</table>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var dayBreak = null;
+        var firstBreak = true;
+
+        $("#offset-detected").text(' (detected as UTC' + moment().format('Z') + ')');
+
+        $('tbody .start-time').each(function(index) {
+
+
+
+            runTimestamp = moment($(this).html());
+            runTime = new moment(runTimestamp);
+
+            if ($(this).parent().hasClass('second-row')) {
+                firstBreak = false;
+            } else {
+                firstBreak = true;
+            }
+
+
+
+            if (dayBreak != runTime.date()) {
+
+                dayBreak = runTime.date(); // Get the day of the month for the day rows
+
+                if (firstBreak != true) {
+
+                    $(this).parent().next('tr').before('<tr class="day-split" >' +
+                        '<td colspan="20">' +
+                        runTime.format('dddd, MMMM Do ') + '</td></tr>');
+                } else {
+                    $(this).parent().before('<tr class="day-split" >' +
+                        '<td colspan="20">' +
+                        runTime.format('dddd, MMMM Do ') + '</td></tr>');
+                }
+
+
+            }
+
+
+            $(this).html(runTime.format('LT'));
+        });
+    });
+</script>
+<br /><br />
+<div id="foot" class="text-center">
+<a href="#top"><i class="fa fa-chevron-circle-up text-gdq-white fa-2x" style="padding-top: 5px"></i></a>
+<p style="padding-top: 10px"><a id="battle" href="#" onclick="document.getElementById('battlevideo').play();">
+Many more battle scenes will soon be available!</a>
+</p>
+<br /><br />
+</div>
+</div>
+</div>
+</body>
+</html>

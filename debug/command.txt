@@ -1,0 +1,15 @@
+1 01:00 - swap 31 32
+1 08:15 - shift 14 23
+1 12:00 - shift 18 26
+1 16:00 - remove 25
+1 20:00 - add Hollow_Knight 27 80
+2 01:00 - swap 31 32
+2 01:00 - swap 32 37
+2 06:30 - remove 34
+2 11:00 - shift 46 35
+2 11:00 - add Catherine 37 70
+2 15:00 - shift 45 38
+2 20:00 - add UltraGiga_Setup_Block_1337 58 15
+3 01:00 - shift 52 50
+3 02:00 - remove 51
+3 02:00 - change_title TasBot_plays_"Color_the_Dinosaur" 58
