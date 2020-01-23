@@ -3,11 +3,9 @@
 import time
 import os
 
+from awake_gdq.path import *
 from awake_gdq.schedule import *
 from awake_gdq.retriever import *
-
-ABSOLUTE_PATH = os.path.abspath(os.path.dirname(__file__))
-FD = os.open(os.path.join(ABSOLUTE_PATH, 'log.txt'), os.O_WRONLY|os.O_CREAT)
 
 
 def search(sc, entry) :
@@ -109,4 +107,6 @@ def substitution(sc, entry1, entry2, l1, l2) :
 
 
 def log(str) :
-    os.write(FD, bytes(str + '\n', 'utf-8'))
+    log_file = os.open(os.path.join(LOCAL_PATH, 'log.txt'), os.O_WRONLY|os.O_APPEND|os.O_CREAT)
+    os.write(log_file, bytes(str + '\n', 'utf-8'))
+    os.close(log_file)

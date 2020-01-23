@@ -8,9 +8,9 @@ import time
 import os
 
 from debug.mutable_schedule import *
+from awake_gdq.path import *
 from awake_gdq.retriever import *
 
-ABSOLUTE_PATH = os.path.abspath(os.path.dirname(__file__))
 
 def make_html_entry(entry) :
     date = entry.start_date.isoformat() + 'Z'
@@ -63,8 +63,8 @@ mutable_schedule = MutableSchedule()
 def initialize() :
     global mutable_schedule
     mutable_schedule.initialize()
-    get_schedule(mutable_schedule, os.path.join(ABSOLUTE_PATH, 'base_schedule.html'))
-    file = os.open(os.path.join(ABSOLUTE_PATH, 'new_schedule.html'), os.O_WRONLY|os.O_CREAT)
+    get_schedule(mutable_schedule, os.path.join(DEBUG_PATH, 'base_schedule.html'))
+    file = os.open(os.path.join(LOCAL_PATH, 'new_schedule.html'), os.O_WRONLY|os.O_CREAT)
     os.write(file, bytes(make_html_schedule(mutable_schedule), 'utf-8'))
     os.close(file)
 
@@ -75,6 +75,6 @@ def change(cmd_line) :
     f, arg = parse(cmd_line)
     f(mutable_schedule, *arg)
 
-    file = os.open(os.path.join(ABSOLUTE_PATH, 'new_schedule.html'), os.O_WRONLY|os.O_CREAT)
+    file = os.open(os.path.join(LOCAL_PATH, 'new_schedule.html'), os.O_WRONLY|os.O_CREAT)
     os.write(file, bytes(make_html_schedule(mutable_schedule), 'utf-8'))
     os.close(file)

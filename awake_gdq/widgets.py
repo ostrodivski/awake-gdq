@@ -16,9 +16,6 @@ DAY_LABEL_HEIGHT = 50
 HOUR_LENGTH = (COL_HEIGHT - 2*COL_BORDER_WIDTH) / 24
 SIZE_LED = 15
 
-LED_ON_PATH = 'led_on.png'
-LED_OFF_PATH = 'led_off.png'
-
 
 days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 default_date = datetime.datetime(1, 1, 1)

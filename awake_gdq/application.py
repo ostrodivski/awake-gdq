@@ -7,6 +7,7 @@ import datetime
 import time
 import os
 
+from awake_gdq.path import *
 from awake_gdq.schedule import *
 from awake_gdq.retriever import *
 from awake_gdq.update import *
@@ -14,11 +15,6 @@ from awake_gdq.widgets import *
 from awake_gdq.config import *
 
 UPDATE_PERIOD = 500    # milliseconds
-
-LED_ON_PATH = 'led_on.png'
-LED_OFF_PATH = 'led_off.png'
-SCHEDULE_PATH = ''
-ABSOLUTE_PATH = os.path.abspath(os.path.dirname(__file__))
 
 days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
@@ -57,8 +53,8 @@ class Application() :
 
                 # LED path
 
-        led_on = tk.PhotoImage(file = os.path.join(ABSOLUTE_PATH, LED_ON_PATH))
-        led_off = tk.PhotoImage(file = os.path.join(ABSOLUTE_PATH, LED_OFF_PATH))
+        led_on = tk.PhotoImage(file = os.path.join(ABSOLUTE_PATH, 'led_on.png'))
+        led_off = tk.PhotoImage(file = os.path.join(ABSOLUTE_PATH, 'led_off.png'))
 
         fake_led = LED(None)    # set the image path in the LED class
         fake_led.set_image(led_on, led_off)
@@ -72,8 +68,7 @@ class Application() :
 
         # initialize schedule
 
-        self.schedule_path = (os.path.join(ABSOLUTE_PATH, SCHEDULE_PATH) if SCHEDULE_PATH != '' \
-                    else '')
+        self.schedule_path = ''
         self.sc = DisplayableSchedule(self.master)
         self.initialize()
 

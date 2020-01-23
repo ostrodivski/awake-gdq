@@ -8,9 +8,6 @@ import os
 from awake_gdq.application import *
 from debug.change import *
 
-COMMAND_PATH = 'command.txt'
-ABSOLUTE_PATH = os.path.abspath(os.path.dirname(__file__))
-
 class DebugApplication(Application) :
     def __init__(self, master) :
         self.active = False
@@ -44,7 +41,7 @@ class DebugApplication(Application) :
         self.cmd_line = []
         self.cmd_date = []
         self.cmd_index = 0
-        self.schedule_path = os.path.join(ABSOLUTE_PATH, 'new_schedule.html')
+        self.schedule_path = os.path.join(LOCAL_PATH, 'new_schedule.html')
 
         initialize()
 
@@ -128,7 +125,7 @@ class DebugApplication(Application) :
         self.cmd_line = []
         self.cmd_date = []
         self.cmd_index = 0
-        file = open(os.path.join(ABSOLUTE_PATH, COMMAND_PATH), 'r')
+        file = open(os.path.join(DEBUG_PATH, 'command.txt'), 'r')
         for line in file.readlines() :
             print(line)
             cmd = line.split(' - ')
