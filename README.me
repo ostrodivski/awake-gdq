@@ -1,0 +1,205 @@
+   ###############################################################
+ ###################################################################
+#####################################################################
+#####     __                  __         ___   ____    ___      #####
+#####    /, \  __    __ ___  | |__ ___ .' __\ |_   '..'   '.    #####
+#####   / __ \ \ \/\/ //,  \ | ' // ,_\| |_,—— _| , ||  ,  |    #####
+#####  |_/  \_| \_/\_/ \_,\_\|_|_\\___/'.____||____.''._____\   #####
+#####                                                           #####
+#####################################################################
+ ###################################################################
+   ###############################################################
+
+
+
+
+
+#########################
+###  GETTING STARTED  ###
+#########################
+
+
+
+
+
+You can install AwakeGDQ via the .deb package. Be sure to have the following packages installed on your system first (latest vesions) :
+- python3
+- tkinter
+- tksnack
+
+The command to launch the programm is 'awake-gdq'. Add '--debug' or '-d' to enable debug mode.
+
+
+
+
+
+#################
+###  GENERAL  ###
+#################
+
+
+
+
+
+*** Presentation ***
+
+
+
+AwakeGDQ is an interactive schedule coded with Python3, for people who follows GDQ events.
+
+Lots of changes on the schedule can arise during the event : run cancelled, run delayed, etc. This can happend to be treacherous when you decide to take a nap, then wake up afterward to realize that the run you wanted to see so badly is already over. With AwakeGDQ, you don't have to worry about that anymore : the programm ensure you to keep track of the changes that has occured while you were sleepng, and to wake you up when the run is about to start.
+
+
+*** Concept ***
+
+
+The programm is designed to detect changes that have occured in the schedule, and to guess the precise nature of those changes, e.g. additions, deletions, shift or substitutions. Note that the programm isn't able to distinguish between substitution and a renaming. For example, 'Sekiro' replaced by 'Kingdom Hearth' is the same change as 'Setup Block 6' renamed in 'Super Mario Maker 2 TAS'.
+
+The algorithme isn't one hundred pourcent reliable, that's why it is needed to minimize the number of changes that occure at once. For example, if an entry is renamed, end an adjacent entry is moved at the same time, the programm may fail to guess correctly what appened by seeing the former as removed, thus the alarm you might have set on it will no longer be effective. To avoid that kind of situation, the schedule must be regularly refreshed, in order to handle one change at once.
+
+
+
+
+
+###############
+###  USAGE  ###
+###############
+
+
+
+
+
+Now we're going to detail how to use the programm. There are two different modes available : the normal mode is the one you should use in practice, while the debug mode aims at testing the programm and, of course, debugging (sort of).
+
+
+
+
+*** Normal Mode ***
+
+
+
+
+In normal mode, outside GDQ's weeks, you won't see much append at all. If you want to test the programm, see next section 'DEBUG MODE'. Note that in this mode, the programm can't work without internet connexion, which is needed to retrieve the schedule from the official website of GamesDoneQuick.
+
+
+_Layout_
+
+
+The schedule is displayed on the main window. Each entry is referred by its name. When an entry is clicked, it displays a window containing all useful informations about the run. From here you to set an alarm (see below). You can see if an alarm is set by the LED displayed at the bottom of each entry.
+
+
+_Bottom Panel_
+
+
+- Refresh : refresh the schedule manually. This button is grayed when auto-refresh is active ;
+- Auto-refresh : refresh the schedule automatically at a predefinied rate. You can adjust the refresh period via the config panel (see below) ;
+- Reinitialize : remap entirely the scheduled. If alarms where programmed beforhand, they will be reseted ;
+- Options : open the config panel (see below).
+
+
+_Config Panel_
+
+
+Through this panel, you can customize some aspects of the programm :
+
+- Set music : there is a music set by default for the alarm, but you can browse another music on your computer. It is recommanded to test the audio file first, using debug mode. Indeed, some audio formats (mp3 in particular) are not supported by Snack on some versions. If you want to ensure that it works, use wav audio format instead.
+
+- Set refresh rate : here you can adjuts the amount of time passing between two refreshes. This option is valable only in auto-refresh mode. Theoretically, you'll don't need to refresh the schedule too often, but the more you refresh, the more accurate the guessing algorithm will be. You don't want your run to be tagged removed when in fact it was just renamed, do you ?
+
+- Set alarm delay : the alarm can wake you up a bit earlier than the run, this option allow you to adjust it.
+
+- Set colors : you can change the colors of the backgrounds and the entries. Probably the most important feature of all...
+
+
+To apply the modifications, press Apply. The Save button will save the modifications for future sessions [TODO : make Save operating].
+
+
+_Logs_
+
+
+You can retrieve the changes that occured on the schedule in the file '~/.awake-gdq/log.txt'. If the file doesn't exist, it will be automatically created.
+
+
+
+
+*** Debug Mode ***
+
+
+
+
+The option --debug (or -d for short) allows you to enter debug mode : from here, you can simulate changes in the schedule, like in a real GDQ, and make time pass as fast as you wish. The part of the programm that apply changes to the schedule work independantly from the one that detects thoses changes, in order to ensure the most realistic environment possible.
+
+
+_Layout_
+
+
+The first difference you'll notice is the presence of identifiers on top of each entries, which are used for editing commands (see below). At first the numerotation follows the order on the schedule, but can be altered by performing changes. For example, when two entries are swapped, they keep their respective identifiers, however when the schedule is reinitialized, new identifier are assigned to them following the order on the schedule. Be careful with that, though, the debug mode is not conceived to handle very specific cases and may easily crash.
+
+Next you'll see a red guid, that shows your current position on the schedule. The origin of times is set to the first entry, so you don't have to wait 6 months to test the programm :/
+
+
+_Debug Panel_
+
+
+- Time rule : the time rule allows you to make time pass faster. By default, the cursor is set to one, that is times passes at normal speed.
+
+- Start/Stop/Pause : the purpose of Start and Pause is pretty clear. The Stop button will reset everything : you'll start from the beginning of the schedule and all changes will be undone.
+
+- Set changes : this command map the specified changes on the scheduled specified in command.txt (see below), that will appears as blue guids. Once you reach a blue guid, a change is performed. To visualize it, you need to refresh the schedule.
+
+
+_Changes Editor_
+
+
+[TODO : allow the user to import their own command.txt]
+
+
+A command follows the following convention :
+
+[day] [hh:mm] - [command name] [arg1] [arg2] [...]
+
+The first part of the command, e.g. preceding the dash, is the time at which the change is performed, that appears as blue guids on the schedule.
+
+- 'day' is a digit between 0 and 8, 0 being Sunday when the schedule starts, and 8 Sunday when it ends ;
+- as you've probably guessed, 'hh:mm' refers to the hour of the day. Please respects the two digits convention.
+
+The second part of the command, e.g. following the dash, described the change itself. There are 5 types of changes that you can set : addition, deletion, shift, swap and rename. Their usage is described in the following table :
+
+		|	command name	arg1		arg2		arg3
+________________|_______________________________________________________________
+addition	|	add		title		position	duration
+deletion	|	remove		entry_no	-		-
+shift		|	shift		entry_no	position	-
+swap		|	swap		entry_no	entry no	-
+rename		|	change_title	title		entry no
+
+- 'entry_no' refers to the identifier of the entry you want to acts on ;
+- 'position' refers to the identifier of the entry before which you want to put you entry ;
+- 'title' corresponds to the title of the entry. If you want to put spaces, use _ ;
+- 'duration' corresponds to the total duration of the entry (run + setup) in minutes.
+
+For example, the command 'shift 4 6' will move the entry no.4 before the entry no.6, and 'add foo 4 90' will add the 1h30 long entry titled foo before the entry no.4.
+Misc data like 'estimate', 'runners' are set by default and you can't change them.
+
+Don't try to move the first and last entries, it can lead to unexpected results. Moreover, be careful when using the remove command : when an entry is removed, its identifier no longer exists, which can lead to errors if you try to invoke it afterward. Finally, keep in mind that reinitialization reassign identifiers, which can also lead to unexpected behaviors.
+
+
+
+
+
+
+###############
+###  MISC.  ###
+###############
+
+
+
+
+
+author : Ostrodivski
+version : 0.1
+build with : setuptools
+url : https://www.github.com/ostrodivski/awake-gdq
+acknowledgment :
+	- the unfortunate nap I made during AGDQ2020 just "before" the TasBot section
+	- my sister for tests and advices
