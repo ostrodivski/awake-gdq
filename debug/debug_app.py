@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import time
-import datetime as dt
 import tkinter as tk
 import os
 
@@ -93,8 +92,8 @@ class DebugApplication(Application) :
         self.origin_real_date = time.time()
         self.last_real_date = self.origin_real_date
         date = self.sc.time_origin
-        self.origin_effective_date = (datetime.datetime(date.year, date.month, date.day, 0, 0, 0)).timestamp()
-        self.last_effective_date = date.timestamp()
+        self.origin_effective_date = floor(date / (3600 * 24)) * 3600 * 24
+        self.last_effective_date = date
         self.last_refresh = self.origin_effective_date
 
     def set_last_date(self) :

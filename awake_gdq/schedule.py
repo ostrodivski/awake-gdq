@@ -1,9 +1,5 @@
 #!/usr/bin/python3
 
-import datetime as dt
-
-default_date = dt.datetime(1, 1, 1)
-default_duration = dt.timedelta(0)
 
 ## the class schedule consists of a basic structure of chained list
 ##    [entry_1] <-> [entry_2] <-> ... <-> [_]
@@ -30,15 +26,15 @@ class Schedule :
 
         # time info
 
-        self.time_origin = None
-        self.start_date = None
-        self.duration = dt.timedelta(minutes=30)
+        self.time_origin = 0
+        self.start_date = 0
+        self.duration = 1800    # 30 minutes
 
         # misc info
 
         self.title = ''
         self.category = ''
-        self.estimate = None
+        self.estimate = ''
         self.runners = ''
 
         # other
@@ -72,10 +68,10 @@ class Schedule :
         if not self.is_last :
             self.next_sc.add_sc(**kwargs)
         else :
-            self.start_date = kwargs.get('date', default_date)
+            self.start_date = kwargs.get('date', 0)
             self.title = kwargs.get('title', 'Title')
             self.category = kwargs.get('category', 'Category')
-            self.estimate = kwargs.get('estimate', default_duration)
+            self.estimate = kwargs.get('estimate', '0:00:00')
             self.runners = kwargs.get('runners', 'Runners')
 
             self.is_last = False

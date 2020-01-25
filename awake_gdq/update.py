@@ -81,13 +81,13 @@ def deletion(sc, entry1, entry2, l1, l2) :
     return entry1.next_sc, entry2
 
 def addition(sc, entry1, entry2, l1, l2) :
-    log('* ' + entry2.title + ' was added at ' + entry2.start_date.ctime())
+    log('* ' + entry2.title + ' was added at ' + time.ctime(entry2.start_date))
     identify(sc, entry2)   # don't forget to identify the new entry
     return entry1, entry2.next_sc
 
 # the entry in 1 has been delayed
 def top_shift(sc, entry1, entry2, l1, l2) :
-    log('* ' + entry2.title + ' was rescheduled to ' + entry2.start_date.ctime())
+    log('* ' + entry2.title + ' was rescheduled to ' + time.ctime(entry2.start_date))
     copy(l1, entry2)
     l1.marking = True
     return entry1, entry2.next_sc
@@ -95,7 +95,7 @@ def top_shift(sc, entry1, entry2, l1, l2) :
 # the entry in 1 has been advanced : it is the same thing as saying that
 # the entry in 2 has been delayed
 def bottom_shift(sc, entry1, entry2, l1, l2) :
-    log('* ' + l2.title + ' was rescheduled to ' + l2.start_date.ctime())
+    log('* ' + l2.title + ' was rescheduled to ' + time.ctime(l2.start_date))
     copy(entry1, l2)
     l2.marking = True
     return entry1.next_sc, entry2

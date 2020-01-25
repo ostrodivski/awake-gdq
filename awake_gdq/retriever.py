@@ -3,7 +3,7 @@
 import urllib3
 from bs4 import BeautifulSoup
 import re
-import datetime
+import time
 
 from awake_gdq.schedule import *
 
@@ -16,23 +16,17 @@ sc_table_id = 'runTable'
 def get_date(date_str) :
     # format used : 'AAAA-MM-DDThh:mm:ssZ'
 
-    date = datetime.datetime.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ')
+    date = time.mktime(time.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ'))
     return date
-
-def get_estimate(estimate_str) :
-    # format used : (h)h:mm:ss
-    estimate = datetime.datetime.strptime(estimate_str, '%H:%M:%S')
-    estimate = datetime.timedelta(hours=estimate.hour, minutes=estimate.minute, seconds=estimate.second)
-    return estimate
 
 def get_schedule(sc, path = '') :
     sc_page_data = None
     if path == '' :
         try :
-            sc_page = http.request('GET', sc_url, headers={})
+            sc_page = http.request('GET', sc_url, timeout=5.0)
             sc_page_data = BeautifulSoup(sc_page.data, 'html.parser')
         except urllib3.exceptions.MaxRetryError :
-            return
+            return -1
     else :
         sc_page = open(path, 'r')
         sc_page_data = BeautifulSoup(sc_page.read(), 'lxml')
@@ -48,9 +42,10 @@ def get_schedule(sc, path = '') :
         data_2 = entry_2.find_all('td')
 
         sc.add_sc(date = get_date(data_1[0].text), \
-                title = data_1[1].text, \
-                runners = data_1[2].text, \
-                estimate = get_estimate(data_2[0].text.strip()), \
-                category = data_2[1].text)
+                title = data_1[1].text.strip(), \
+                runners = data_1[2].text.strip(), \
+                estimate = data_2[0].text.strip(), \
+                category = data_2[1].text.strip())
+    return 0
 
 ## --- ##

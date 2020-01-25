@@ -3,7 +3,6 @@
 import tkinter as tk
 import tkSnack
 
-import datetime
 import time
 import os
 
@@ -103,8 +102,8 @@ class Application() :
             now = self._date(time.time())
             for entry in iter(self.sc) :
                 if entry.alarm_on :
-                    start_date = entry.start_date.timestamp()
-                    end_date = start_date + entry.duration.total_seconds()
+                    start_date = entry.start_date
+                    end_date = start_date + entry.duration
                     if now < end_date and now > start_date - self.time_before_start * 60 : 
                         self.play_alarm()
                         entry.switch_alarm()
@@ -175,12 +174,13 @@ class Application() :
     def refresh(self) :
         new_sc = DisplayableSchedule(self.master, False)    # False means that we don't want to numerote
                                                             # entries
-        get_schedule(new_sc, self.schedule_path)
-        update(self.sc, new_sc)
-        del self.sc
-        self.sc = new_sc
-        self.map_schedule()
-        self._refresh()
+        e = get_schedule(new_sc, self.schedule_path)
+        if e == 0 : # we check if the schedule has been successfully retrieved
+            update(self.sc, new_sc)
+            del self.sc
+            self.sc = new_sc
+            self.map_schedule()
+            self._refresh()
 
     def map_schedule(self) :
         self.time_table.clear()
@@ -271,7 +271,7 @@ class DisplayableSchedule(Schedule) :
             self.info_frame = InfoFrame(self.master)
             self.info_frame.bind_info(identifier = self.identifier, alarm_on = self.alarm_on, \
                     entry_title = self.title, category = self.category, start_date = self.start_date, \
-                    runners = self.runners, estimate = self.estimate)
+                    duration = self.duration, runners = self.runners, estimate = self.estimate)
             self.info_displayed = True
             self.info_frame.protocol('WM_DELETE_WINDOW', self.delete_info_frame)
             self.info_frame.alarm.config(command = self.switch_alarm)

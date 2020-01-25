@@ -2,7 +2,6 @@
 
 import tkinter as tk
 from tkinter import filedialog
-import datetime
 import time
 from math import floor
 
@@ -19,9 +18,6 @@ SIZE_LED = 15
 
 
 days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-default_date = datetime.datetime(1, 1, 1)
-default_duration = datetime.timedelta(0)
-
 
 
 
@@ -61,7 +57,7 @@ class TimeTable(tk.Frame) :
             self.sc_frame[i].grid_propagate(False)
             self.sc_frame[i].grid(row = 1, column = i+1)
 
-        self.origin_date = default_date
+        self.origin_date = 0 
         self.color_switch = False
 
         self.color_1 = ENTRY_COLOR_1
@@ -75,13 +71,12 @@ class TimeTable(tk.Frame) :
         for frame in self.sc_frame :
             frame.config(background = self.background)
 
-    def map_entry(self, title = '', start_date = default_date, duration = default_duration) :
-        entry_height = (duration.total_seconds() / 3600) * HOUR_LENGTH
-        origin = datetime.datetime(self.origin_date.year, self.origin_date.month, self.origin_date.day, 0, 0, 0)
-        offset_from_origin = (start_date - origin).total_seconds() 
+    def map_entry(self, title = '', start_date = 0, duration = 1800) :
+        entry_height = (duration / 3600) * HOUR_LENGTH
+        origin = floor(self.origin_date / (3600 * 24)) * (3600 * 24)
+        offset_from_origin = start_date - origin 
         day_num = floor(offset_from_origin / (3600*24))
         start_position = ((offset_from_origin - day_num * 3600 * 24) / 3600) * HOUR_LENGTH
-#        start_position = (start_date.hour + start_date.minute/60) * HOUR_LENGTH
         color = (self.color_1 if self.color_switch else self.color_2)
         self.color_switch = not self.color_switch
 
@@ -147,14 +142,14 @@ class InfoFrame(tk.Toplevel) :
         self.entry_title.pack()
         self.category = tk.Label(self, text = kwargs.get('category', ''), font = ('TKDefaultFont', 10, 'bold'))
         self.category.pack()
-        self.start = tk.Label(self, text = 'starts at : ' + kwargs.get('start_date', default_date).ctime())
+        self.start = tk.Label(self, text = 'starts at : ' + time.ctime(kwargs.get('start_date', 0)))
         self.start.pack()
-        self.end = tk.Label(self, text = 'ends at : ' + (kwargs.get('start_date', default_date) \
-                + kwargs.get('duration', default_duration)).ctime())
+        self.end = tk.Label(self, text = 'ends at : ' + time.ctime(kwargs.get('start_date', 0) \
+                + kwargs.get('duration', 0)))
         self.end.pack()
         self.runners = tk.Label(self, text = 'runners : ' + kwargs.get('runners', ''))
         self.runners.pack()
-        self.estimate = tk.Label(self, text = 'estimate : ' + str(kwargs.get('estimate', default_duration)))
+        self.estimate = tk.Label(self, text = 'estimate : ' + kwargs.get('estimate', '0:00:00'))
         self.estimate.pack()
 
         self.alarm = tk.Checkbutton(self, text = 'set alarm', variable = self.alarm_on)
