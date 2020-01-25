@@ -68,7 +68,7 @@ class Application() :
 
         # initialize schedule
 
-        self.schedule_path = ''
+        self.schedule_path = self._get_schedule_path()
         self.sc = DisplayableSchedule(self.master)
         self.initialize()
 
@@ -115,6 +115,7 @@ class Application() :
                     self.last_refresh = now
 
         self.master.after(self.update_period, self.update)
+        self._update()
 
     # alarm
 
@@ -179,13 +180,27 @@ class Application() :
         del self.sc
         self.sc = new_sc
         self.map_schedule()
+        self._refresh()
 
     def map_schedule(self) :
         self.time_table.clear()
         for entry in iter(self.sc) :
             entry.display(self.time_table)
-    
+        self._map_schedule()
+
     # debug
+
+    def _get_schedule_path(self) :
+        return ''
+
+    def _update(self) :
+        pass
+
+    def _refresh(self) :
+        pass
+
+    def _map_schedule(self) :
+        pass
 
     def _duration(self, duration) : # duration = seconds ; return seconds
         return duration

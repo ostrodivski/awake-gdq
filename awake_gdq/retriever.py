@@ -28,8 +28,11 @@ def get_estimate(estimate_str) :
 def get_schedule(sc, path = '') :
     sc_page_data = None
     if path == '' :
-        sc_page = http.request('GET', sc_url, headers={})
-        sc_page_data = BeautifulSoup(sc_page.data, 'html.parser')
+        try :
+            sc_page = http.request('GET', sc_url, headers={})
+            sc_page_data = BeautifulSoup(sc_page.data, 'html.parser')
+        except urllib3.exceptions.MaxRetryError :
+            return
     else :
         sc_page = open(path, 'r')
         sc_page_data = BeautifulSoup(sc_page.read(), 'lxml')

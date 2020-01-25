@@ -22,6 +22,7 @@ class DebugApplication(Application) :
 
         self.now_guid = None
 
+
         Application.__init__(self, master)
 
         self.debug_panel = DebugPanel(self.master)
@@ -41,29 +42,9 @@ class DebugApplication(Application) :
         self.cmd_line = []
         self.cmd_date = []
         self.cmd_index = 0
-        self.schedule_path = os.path.join(LOCAL_PATH, 'new_schedule.html')
 
         initialize()
 
-    def update(self) :
-        Application.update(self)
-        if self.active :
-            self.set_last_date()
-            self.display_now_guid()
-            if self.cmd_index < len(self.cmd_guid) :
-                if self.cmd_date[self.cmd_index] <= self.last_effective_date :
-                    change(self.cmd_line[self.cmd_index])
-                    self.cmd_index = self.cmd_index + 1
-
-    def refresh(self) :
-        Application.refresh(self)
-        self.display_cmd_guids()
-
-    def map_schedule(self) :
-        Application.map_schedule(self)
-        for entry in iter(self.sc) :
-            identifier = tk.Label(entry.principal_chunk, text = entry.identifier)
-            identifier.place(x = 0, y = 0)
 
 
     # guids
@@ -141,6 +122,23 @@ class DebugApplication(Application) :
 
     # debug
 
+    def _update(self) :
+        if self.active :
+            self.set_last_date()
+            self.display_now_guid()
+            if self.cmd_index < len(self.cmd_guid) :
+                if self.cmd_date[self.cmd_index] <= self.last_effective_date :
+                    change(self.cmd_line[self.cmd_index])
+                    self.cmd_index = self.cmd_index + 1
+
+    def _refresh(self) :
+        self.display_cmd_guids()
+
+    def _map_schedule(self) :
+        for entry in iter(self.sc) :
+            identifier = tk.Label(entry.principal_chunk, text = entry.identifier)
+            identifier.place(x = 0, y = 0)
+
     def _date(self, date) : # get real date, return effective date
         time_offset = self._duration(date - self.last_real_date)
         return self.last_effective_date + time_offset
@@ -151,6 +149,8 @@ class DebugApplication(Application) :
     def _active(self) :
         return self.active
 
+    def _get_schedule_path(self) :
+        return os.path.join(LOCAL_PATH, 'new_schedule.html')
 
 class Guid(tk.Frame) :
     def __init__(self, master, *args, **kwargs) :

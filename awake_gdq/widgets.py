@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import filedialog
 import datetime
 import time
+from math import floor
 
 from awake_gdq.schedule import *
 from awake_gdq.config import *
@@ -75,9 +76,12 @@ class TimeTable(tk.Frame) :
             frame.config(background = self.background)
 
     def map_entry(self, title = '', start_date = default_date, duration = default_duration) :
-        entry_height = (duration.seconds / 3600) * HOUR_LENGTH
-        col_num = start_date.day - self.origin_date.day
-        start_position = (start_date.hour + start_date.minute/60) * HOUR_LENGTH
+        entry_height = (duration.total_seconds() / 3600) * HOUR_LENGTH
+        origin = datetime.datetime(self.origin_date.year, self.origin_date.month, self.origin_date.day, 0, 0, 0)
+        offset_from_origin = (start_date - origin).total_seconds() 
+        day_num = floor(offset_from_origin / (3600*24))
+        start_position = ((offset_from_origin - day_num * 3600 * 24) / 3600) * HOUR_LENGTH
+#        start_position = (start_date.hour + start_date.minute/60) * HOUR_LENGTH
         color = (self.color_1 if self.color_switch else self.color_2)
         self.color_switch = not self.color_switch
 
@@ -85,16 +89,16 @@ class TimeTable(tk.Frame) :
 
         while start_position + entry_height > COL_HEIGHT - 2*COL_BORDER_WIDTH :
             chunk_height = COL_HEIGHT - 2*COL_BORDER_WIDTH - start_position
-            ch = Chunk(self.sc_frame[col_num], title, height = chunk_height, \
+            ch = Chunk(self.sc_frame[day_num], title, height = chunk_height, \
                     width = COL_WIDTH - 2*COL_BORDER_WIDTH, background = color)
             ch.place(x = 0, y = start_position)
 
             entry_height = entry_height - chunk_height
             start_position = 0
-            col_num = col_num + 1
+            day_num = day_num + 1
             chunk.append(ch)
-            
-        ch = Chunk(self.sc_frame[col_num], title, height = entry_height + 1, \
+
+        ch = Chunk(self.sc_frame[day_num], title, height = entry_height + 1, \
                 width = COL_WIDTH - 2*COL_BORDER_WIDTH, \
                 background = color)
         ch.place(x = 0, y = start_position)
