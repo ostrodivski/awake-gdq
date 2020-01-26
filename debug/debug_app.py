@@ -20,7 +20,7 @@ class DebugApplication(Application) :
         self.time_multiplier = 1
 
         self.now_guid = None
-
+        initialize()
 
         Application.__init__(self, master)
 
@@ -42,7 +42,6 @@ class DebugApplication(Application) :
         self.cmd_date = []
         self.cmd_index = 0
 
-        initialize()
 
 
 

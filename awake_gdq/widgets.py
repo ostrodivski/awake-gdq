@@ -74,8 +74,8 @@ class TimeTable(tk.Frame) :
     def map_entry(self, title = '', start_date = 0, duration = 1800) :
         entry_height = (duration / 3600) * HOUR_LENGTH
         origin = floor(self.origin_date / (3600 * 24)) * (3600 * 24)
-        offset_from_origin = start_date - origin 
-        day_num = floor(offset_from_origin / (3600*24))
+        offset_from_origin = start_date - origin
+        day_num = floor(offset_from_origin / (3600 * 24))
         start_position = ((offset_from_origin - day_num * 3600 * 24) / 3600) * HOUR_LENGTH
         color = (self.color_1 if self.color_switch else self.color_2)
         self.color_switch = not self.color_switch
@@ -131,28 +131,26 @@ class InfoFrame(tk.Toplevel) :
     def __init__(self, master, *args, **kwargs) :
         tk.Toplevel.__init__(self, master, *args, **kwargs)
 
-        self.alarm_on = tk.IntVar()
-
     def bind_info(self, **kwargs) :
         self.identifier = kwargs.get('identifier', 0)
-        self.alarm_on.set(kwargs.get('alarm_on', False))
 
         self.title('Informations')
         self.entry_title = tk.Label(self, text = kwargs.get('entry_title', ''), font = ('TKDefaultFont', 11, 'bold'))
         self.entry_title.pack()
         self.category = tk.Label(self, text = kwargs.get('category', ''), font = ('TKDefaultFont', 10, 'bold'))
         self.category.pack()
-        self.start = tk.Label(self, text = 'starts at : ' + time.ctime(kwargs.get('start_date', 0)))
+        self.start = tk.Label(self, text = 'starts at : ' + \
+                time.asctime(time.gmtime(kwargs.get('start_date', 0))))
         self.start.pack()
-        self.end = tk.Label(self, text = 'ends at : ' + time.ctime(kwargs.get('start_date', 0) \
-                + kwargs.get('duration', 0)))
+        self.end = tk.Label(self, text = 'ends at : ' + \
+                time.asctime(time.gmtime(kwargs.get('start_date', 0) + kwargs.get('duration', 0))))
         self.end.pack()
         self.runners = tk.Label(self, text = 'runners : ' + kwargs.get('runners', ''))
         self.runners.pack()
         self.estimate = tk.Label(self, text = 'estimate : ' + kwargs.get('estimate', '0:00:00'))
         self.estimate.pack()
 
-        self.alarm = tk.Checkbutton(self, text = 'set alarm', variable = self.alarm_on)
+        self.alarm = tk.Checkbutton(self, text = 'set alarm')
         self.alarm.pack()
 
 

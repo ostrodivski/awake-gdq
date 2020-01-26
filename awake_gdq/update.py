@@ -76,18 +76,19 @@ def update(sc1, sc2) :
 
 
 
+
 def deletion(sc, entry1, entry2, l1, l2) :
-    log('* ' + entry1.title + ' was removed')
+    log(entry1.title + ' was removed')
     return entry1.next_sc, entry2
 
 def addition(sc, entry1, entry2, l1, l2) :
-    log('* ' + entry2.title + ' was added at ' + time.ctime(entry2.start_date))
+    log(entry2.title + ' was added at ' + time.ctime(entry2.start_date))
     identify(sc, entry2)   # don't forget to identify the new entry
     return entry1, entry2.next_sc
 
 # the entry in 1 has been delayed
 def top_shift(sc, entry1, entry2, l1, l2) :
-    log('* ' + entry2.title + ' was rescheduled to ' + time.ctime(entry2.start_date))
+    log(entry2.title + ' was rescheduled to ' + time.ctime(entry2.start_date))
     copy(l1, entry2)
     l1.marking = True
     return entry1, entry2.next_sc
@@ -95,18 +96,18 @@ def top_shift(sc, entry1, entry2, l1, l2) :
 # the entry in 1 has been advanced : it is the same thing as saying that
 # the entry in 2 has been delayed
 def bottom_shift(sc, entry1, entry2, l1, l2) :
-    log('* ' + l2.title + ' was rescheduled to ' + time.ctime(l2.start_date))
+    log(l2.title + ' was rescheduled to ' + time.ctime(l2.start_date))
     copy(entry1, l2)
     l2.marking = True
     return entry1.next_sc, entry2
 
 def substitution(sc, entry1, entry2, l1, l2) :
-    log('* ' + entry1.title + ' was changed to ' + entry2.title)
+    log(entry1.title + ' was changed to ' + entry2.title)
     copy(entry1, entry2)
     return entry1.next_sc, entry2.next_sc
 
 
 def log(str) :
     log_file = os.open(os.path.join(LOCAL_PATH, 'log.txt'), os.O_WRONLY|os.O_APPEND|os.O_CREAT)
-    os.write(log_file, bytes(str + '\n', 'utf-8'))
+    os.write(log_file, bytes('* ' + time.ctime(time.time()) + ' : ' + str + '\n', 'utf-8'))
     os.close(log_file)

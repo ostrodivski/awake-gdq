@@ -4,6 +4,7 @@ import urllib3
 from bs4 import BeautifulSoup
 import re
 import time
+import calendar
 
 from awake_gdq.schedule import *
 
@@ -15,8 +16,9 @@ sc_table_id = 'runTable'
 
 def get_date(date_str) :
     # format used : 'AAAA-MM-DDThh:mm:ssZ'
+    # /!\ the time stored in date is the UTC in seconds ; to display the date, use asctime(gmtime(t))
 
-    date = time.mktime(time.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ'))
+    date = calendar.timegm(time.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ')) - time.timezone
     return date
 
 def get_schedule(sc, path = '') :
@@ -41,7 +43,7 @@ def get_schedule(sc, path = '') :
         data_1 = entry_1.find_all('td')
         data_2 = entry_2.find_all('td')
 
-        sc.add_sc(date = get_date(data_1[0].text), \
+        sc.add_sc(date = get_date(data_1[0].text.strip()), \
                 title = data_1[1].text.strip(), \
                 runners = data_1[2].text.strip(), \
                 estimate = data_2[0].text.strip(), \

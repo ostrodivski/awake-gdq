@@ -12,7 +12,7 @@ from awake_gdq.retriever import *
 
 
 def make_html_entry(entry) :
-    date = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.localtime(entry.start_date))
+    date = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(entry.start_date + time.timezone))
     item = '<tr>\n<td class="start-time text-right">' + date + '</td>\n<td>' + entry.title + '</td>\n<td>lorem</td>\n<td>ipsum</td>\n<td rowspan="2" class="visible-lg text-center"> <i class="fa fa-clock-o text-gdq-red" aria-hidden="true"></i> 0:19:00 </td>\n</tr>\n<tr class="second-row">\n<td class="text-right "> <i class="fa fa-clock-o" aria-hidden="true"></i> 0:19:00 </td>\n<td>amet</td>\n<td><i class="fa fa-microphone"></i> consectetur</td>\n</tr>'
     return item
 

@@ -101,7 +101,7 @@ class Application() :
         if self._active() and self.is_updating :
             now = self._date(time.time())
             for entry in iter(self.sc) :
-                if entry.alarm_on :
+                if entry.alarm_on.get() :
                     start_date = entry.start_date
                     end_date = start_date + entry.duration
                     if now < end_date and now > start_date - self.time_before_start * 60 : 
@@ -225,7 +225,8 @@ class DisplayableSchedule(Schedule) :
         self.info_displayed = False
 
         self.alarm_led = None
-        self.alarm_on = False
+        self.alarm_on = tk.IntVar()
+        self.alarm_on.set(0)
 
     def copy(self, target) :
         Schedule.copy(self, target)
@@ -249,13 +250,13 @@ class DisplayableSchedule(Schedule) :
             ch.bind('<Button-1>', lambda e: self.pop_info_frame())
             if self.info_displayed :    # /!\ if the info panel is open, don't forget to remap
                                         # the alarm button
-                self.info_frame.alarm.config(command = self.switch_alarm)
+                self.info_frame.alarm.config(variable = self.alarm_on, command = self.switch_alarm)
                 self.info_frame.protocol('WM_DELETE_WINDOW', self.delete_info_frame)
         self.principal_chunk = self.chunk[0]
         self.alarm_led = LED(self.principal_chunk, background = self.principal_chunk.cget('background'))
         self.alarm_led.place(x = COL_WIDTH - 2*COL_BORDER_WIDTH - SIZE_LED, \
                 y = self.principal_chunk.cget('height') - SIZE_LED)
-        if self.alarm_on :
+        if self.alarm_on.get() :
             self.alarm_led.set_on()
 
     def change_color(self, color) :
@@ -269,7 +270,7 @@ class DisplayableSchedule(Schedule) :
     def pop_info_frame(self) :
         if not self.info_displayed :
             self.info_frame = InfoFrame(self.master)
-            self.info_frame.bind_info(identifier = self.identifier, alarm_on = self.alarm_on, \
+            self.info_frame.bind_info(identifier = self.identifier, \
                     entry_title = self.title, category = self.category, start_date = self.start_date, \
                     duration = self.duration, runners = self.runners, estimate = self.estimate)
             self.info_displayed = True
@@ -291,11 +292,13 @@ class DisplayableSchedule(Schedule) :
 
     def switch_alarm(self) :
         try :
-            if self.alarm_on :
+            if self.alarm_on.get() :
                 self.alarm_led.set_off()
-                self.alarm_on = False
+                self.alarm_on.set(0)   
+                self.info_frame.alarm.deselect()    # if the function is not called from pop_info_frame
             else :
                 self.alarm_led.set_on()
-                self.alarm_on = True
+                self.alarm_on.set(1)
+                self.info_frame.alarm.select()
         except tk.TclError :
             pass
