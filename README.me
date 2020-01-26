@@ -41,7 +41,7 @@ The command to launch the programm is 'awake-gdq'. Add '--debug' or '-d' to enab
 
 
 
-*** Presentation ***
+*** PRESENTATION ***
 
 
 
@@ -50,7 +50,7 @@ AwakeGDQ is an interactive schedule coded with Python3, for people who follows G
 Lots of changes on the schedule can arise during the event : run cancelled, run delayed, etc. This can happend to be treacherous when you decide to take a nap, then wake up afterward to realize that the run you wanted to see so badly is already over. With AwakeGDQ, you don't have to worry about that anymore : the programm ensures you to keep track of the changes that occur while you sleep, and to wake you up once the run is about to start.
 
 
-*** Concept ***
+*** CONCEPT ***
 
 
 The programm is designed to detect changes that have occured in the schedule, and to guess the precise nature of those changes, e.g. additions, deletions, shift or substitutions. Note that the programm isn't able to distinguish between substitution and a renaming. For example, 'Sekiro' replaced by 'Kingdom Hearth' is the same change as 'Setup Block 6' renamed in 'Super Mario Maker 2 TAS'.
@@ -74,7 +74,7 @@ Now we're going to detail how to use the programm. There are two different avail
 
 
 
-*** Normal Mode ***
+*** NORMAL MODE ***
 
 
 
@@ -102,9 +102,9 @@ _Config Panel_
 
 Through this panel, you can customize some aspects of the programm :
 
-- Set music : there is a music set by default for the alarm, but you can browse another music on your computer. It is recommanded to test the audio file first, using debug mode. Indeed, some audio formats (mp3 in particular) are not supported by Snack in some versions. If you want to ensure that it works, use wav audio format instead.
+- Set music : there is a music set by default for the alarm, but you can browse another music on your computer. It is recommanded to test the audio file first, using debug mode. Indeed, some audio formats (mp3 in particular) are not supported by Snack in some versions. If you want to ensure that it works, use wav audio format instead ;
 - Set refresh rate : here you can adjust the duration between two refreshes. This option is valable only in auto-refresh mode. Theoretically, you'll don't need to refresh the schedule too often, but the more you'll do, the more accurate the algorithm will be.
-- Set alarm delay : the alarm can wake you up a bit earlier than the run, this option allow you to adjust it.
+- Set alarm delay : the alarm can wake you up a bit earlier than the run, this option allow you to adjust it ;
 - Set colors : you can change the colors of the backgrounds and the entries.
 
 To apply the modifications, press Apply. The Save button will save the modifications for future sessions [TODO : make Save operating].
@@ -118,7 +118,7 @@ You can retrieve the changes that occured on the schedule in the file '~/.awake-
 
 
 
-*** Debug Mode ***
+*** DEBUG MODE ***
 
 
 
@@ -137,15 +137,13 @@ Next you'll see a red guid, that shows your current position on the schedule. Th
 _Debug Panel_
 
 
-- Time rule : the time rule allows you to make time pass faster. By default, the cursor is set to one, e.g. time passes at normal speed.
-- Start/Stop/Pause : the purpose of Start and Pause is pretty clear. The Stop button will reset everything : you'll start from the beginning of the schedule and all changes will be undone.
-- Set changes : this command map the specified changes on the scheduled specified in command.txt (see below), that will appears as blue guids. Once you reach a blue guid, a change is performed. To visualize it, you need to refresh the schedule.
+- Time rule : the time rule allows you to make time pass faster. By default, the cursor is set to one, e.g. time passes at normal speed ;
+- Start/Stop/Pause : the purpose of Start and Pause is pretty clear. The Stop button will reset everything : you'll start from the beginning of the schedule and all changes will be undone ;
+- Set changes : this command map the specified changes on the scheduled specified in command.txt (see below), that will appears as blue guids. Once you reach a blue guid, a change is performed. To visualize it, you need to refresh the schedule ;
+- Browse command file : allow you to import your own command file.
 
 
 _Changes Editor_
-
-
-[TODO : allow the user to import their own command.txt]
 
 
 A command follows the following convention :
@@ -176,7 +174,6 @@ For example, the command 'shift 4 6' will move the entry no.4 before the entry n
 Misc data like 'estimate', 'runners' are set by default and you can't change them.
 
 Don't try to move the first and last entries, it can lead to unexpected results. Moreover, be careful when using the remove command : when an entry is removed, its identifier no longer exists, which can lead to errors if you try to invoke it afterward. Finally, keep in mind that reinitialization reassign identifiers, which can also lead to unexpected behaviors.
-
 
 
 

@@ -20,6 +20,7 @@ class DebugApplication(Application) :
         self.time_multiplier = 1
 
         self.now_guid = None
+        self.command_path = os.path.join(DEBUG_PATH, 'command.txt')
         initialize()
 
         Application.__init__(self, master)
@@ -31,6 +32,7 @@ class DebugApplication(Application) :
         self.debug_panel.stop_button.config(command = self.stop)
         self.debug_panel.pause_button.config(command = self.pause)
         self.debug_panel.command_button.config(command = self.parse)
+        self.debug_panel.command_path_button.config(command = self.set_cmd_file)
 
         self.refresh_period = 180
 
@@ -99,12 +101,19 @@ class DebugApplication(Application) :
         self.last_effective_date = self._date(time.time())
         self.last_real_date = time.time()
 
+
+    def set_cmd_file(self) :
+        command_path = tk.filedialog.askopenfilename(title = 'Browse command file', \
+                filetypes = (('text', '*.txt'), ('all files', '*')))
+        if command_path != '' :
+            self.command_path = command_path
+
     def parse(self) : 
         self.cmd_guid = []
         self.cmd_line = []
         self.cmd_date = []
         self.cmd_index = 0
-        file = open(os.path.join(DEBUG_PATH, 'command.txt'), 'r')
+        file = open(self.command_path, 'r')
         for line in file.readlines() :
             print(line)
             cmd = line.split(' - ')
@@ -177,3 +186,5 @@ class DebugPanel(tk.Toplevel) :
 
         self.command_button = tk.Button(self, text = 'Set Commands')
         self.command_button.grid(row = 0, column = 1)
+        self.command_path_button = tk.Button(self, text = 'Browse Command File')
+        self.command_path_button.grid(row = 1, column = 1)
