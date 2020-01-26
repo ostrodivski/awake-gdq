@@ -152,6 +152,7 @@ class InfoFrame(tk.Toplevel) :
 
         self.alarm = tk.Checkbutton(self, text = 'set alarm')
         self.alarm.pack()
+        if kwargs.get('alarm', 0) : self.alarm.select()
 
 
 

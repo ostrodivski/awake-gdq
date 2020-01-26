@@ -270,9 +270,9 @@ class DisplayableSchedule(Schedule) :
     def pop_info_frame(self) :
         if not self.info_displayed :
             self.info_frame = InfoFrame(self.master)
-            self.info_frame.bind_info(identifier = self.identifier, \
+            self.info_frame.bind_info(identifier = self.identifier, alarm = self.alarm_on.get(), \
                     entry_title = self.title, category = self.category, start_date = self.start_date, \
-                    duration = self.duration, runners = self.runners, estimate = self.estimate)
+                    duration = self.duration, runners = self.runners, estimate = self.estimate,)
             self.info_displayed = True
             self.info_frame.protocol('WM_DELETE_WINDOW', self.delete_info_frame)
             self.info_frame.alarm.config(command = self.switch_alarm)
