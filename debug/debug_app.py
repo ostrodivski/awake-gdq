@@ -174,7 +174,7 @@ class DebugPanel(tk.Toplevel) :
         self.multiplier = tk.IntVar()
         self.multiplier.set(1)
         self.time_rule = tk.Scale(self, orient = 'horizontal', length = 400, showvalue = 0, \
-                variable = self.multiplier, from_ = 1, to = 2000)
+                variable = self.multiplier, from_ = 1, to = 5000)
         self.time_rule.grid(row = 0, column = 0)
 
         self.play_button = tk.Button(self, text = 'Play')

@@ -13,7 +13,7 @@ from awake_gdq.update import *
 from awake_gdq.widgets import *
 from awake_gdq.config import *
 
-UPDATE_PERIOD = 500    # milliseconds
+UPDATE_PERIOD = 1000    # milliseconds
 
 days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
@@ -84,7 +84,7 @@ class Application() :
         # intialize time data
 
         self.last_refresh = 0
-        self.is_updating = True
+        self.update_sync = True # avoids starting the alarm while the schedule is refreshed
         self.update_period = UPDATE_PERIOD
         self.refresh_period = REFRESH_PERIOD
         self.time_before_start = TIME_BEFORE_START
@@ -98,7 +98,7 @@ class Application() :
         self.map_schedule()
 
     def update(self) :
-        if self._active() and self.is_updating :
+        if self._active() and self.update_sync :
             now = self._date(time.time())
             for entry in iter(self.sc) :
                 if entry.alarm_on.get() :
@@ -119,7 +119,7 @@ class Application() :
     # alarm
 
     def play_alarm(self) :
-        self.is_updating = False # stop updating to be sure that the alarm keep playing
+        self.update_sync = False    # stop updating to be sure that the alarm keep playing
         self.wake_up_window = WakeUpWindow(self.master)
         self.wake_up_window.stop_button.config(command = self.stop_alarm)
         self.wake_up_window.protocol('WM_DELETE_WINDOW', self.stop_alarm)
@@ -128,7 +128,7 @@ class Application() :
     def stop_alarm(self) :
         self.music.stop()
         self.wake_up_window.destroy()
-        self.is_updating = True
+        self.update_sync = True
 
     # options
 
@@ -172,6 +172,9 @@ class Application() :
             self.refresh_button.config(state = 'normal')
 
     def refresh(self) :
+        if not self.update_sync :    # prevents from refreshing while updating or playing an alarm
+            return
+        self.update_sync = False         # stop updating while refreshing to avoid race conditions
         new_sc = DisplayableSchedule(self.master, False)    # False means that we don't want to numerote
                                                             # entries
         e = get_schedule(new_sc, self.schedule_path)
@@ -181,6 +184,7 @@ class Application() :
             self.sc = new_sc
             self.map_schedule()
             self._refresh()
+        self.update_sync = True
 
     def map_schedule(self) :
         self.time_table.clear()

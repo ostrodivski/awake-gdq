@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
         name = 'awake-gdq',
-        version = '1.0',
+        version = '1.0.1',
         author = 'Ostrodivski',
         description = 'An interactive schedule for GDQ\'s',
         url = 'https://github.com/ostrodivski/awake-gdq',
