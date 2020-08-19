@@ -210,7 +210,7 @@ class Application() :
         return duration
 
     def _date(self, date) : # date = seconds (timestamp) ; return seconds
-        return date - time.timezone     # that works ; don't ask
+        return date - time.altzone
 
     def _active(self) :
         return True
