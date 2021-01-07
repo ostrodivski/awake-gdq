@@ -18,7 +18,8 @@ def get_date(date_str) :
     # format used : 'AAAA-MM-DDThh:mm:ssZ'
     # /!\ the time stored in date is the UTC in seconds ; to display the date, use asctime(gmtime(t))
 
-    date = calendar.timegm(time.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ')) - time.altzone
+    date = calendar.timegm(time.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ')) - \
+        (time.altzone if time.localtime().tm_isdst else time.timezone)
     return date
 
 def get_schedule(sc, path = '') :

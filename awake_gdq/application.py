@@ -210,7 +210,7 @@ class Application() :
         return duration
 
     def _date(self, date) : # date = seconds (timestamp) ; return seconds
-        return date - time.altzone
+        return date - (time.altzone if time.localtime().tm_isdst else time.timezone)
 
     def _active(self) :
         return True
